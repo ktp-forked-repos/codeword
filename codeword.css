@@ -1,0 +1,70 @@
+
+.letter-list {
+    display: inline-block;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    margin-right: -1px;
+    box-sizing: border-box;
+    border: 1px solid #aaa;
+}
+
+.code-input,.code-number {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 1;
+    left: 1;
+}
+
+.code-number {
+    pointer-events: none;
+    padding-top: 1px;
+    padding-left: 3px;
+    font-size: 0.9rem;
+}
+
+.code-input {
+    text-align: center;
+    border: none;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.code-grid {
+    display: inline-block;
+    margin-top: 20px;
+    border: 2px solid black;
+    padding-right: 1px;
+    padding-bottom: 1px;
+}
+
+.grid-row {
+    height: 40px;
+    width: 100%;
+    margin-bottom: 1px;
+}
+
+.grid-item {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 100%;
+    vertical-align: top;
+    box-sizing: border-box;
+    margin-right: 1px;
+}
+
+.grid-item div {
+    height: 100%;
+    width: 100%;
+}
+
+.item-letter {
+    border: 1px solid black;
+}
+
+.item-block {
+    border: 1px solid black;
+    background-color: black;
+}
