@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <link rel="stylesheet" href="codeword.css">
+    </head>
+
+    <body>
+
+        <div id="codeword">
+            <div class="letter-list" v-for="(letter, number) in code">
+                <input class="code-input" v-model="code[number]"/>
+                <span class="code-number" v-if="!letter">{{ number }}</span>
+            </div>
+
+            <div>
+                <div class="code-grid">
+                    <div class="grid-row" v-for="row in grid">
+                        <span class="grid-item" v-for="number in row">
+                            <div class="item-block" v-if="number === 0"></div>
+                            <div class="item-letter" v-else="">
+                                <input class="code-input" v-model="code[number]"/>
+                                <span class="code-number" v-if="!code[number]">{{ number }}</span>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="codeword.js"></script>
+
+    </body>
+</html>
