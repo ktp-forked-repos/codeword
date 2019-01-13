@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Codeword</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://unpkg.com/vue/dist/vue.js"></script>
@@ -12,13 +12,10 @@
 
     <body>
 
-        <div id="codeword">
-            <div class="letter-list" v-for="(letter, number) in code">
-                <input class="code-input" v-model="code[number]"/>
-                <span class="code-number" v-if="!letter">{{ number }}</span>
-            </div>
+        <h1>Codeword</h1>
 
-            <div>
+        <div id="codeword">
+            <section>
                 <div class="code-grid">
                     <div class="grid-row" v-for="row in grid">
                         <span class="grid-item" v-for="number in row">
@@ -30,8 +27,30 @@
                         </span>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <section>
+                <div class="letter-list" v-for="(letter, number) in code">
+                    <input class="code-input" v-model="code[number]"/>
+                    <span class="code-number" v-if="!letter">{{ number }}</span>
+                </div>
+            </section>
+
+            <section>
+                <span class="cross-off-letters" v-for="letter in letters">
+                    {{ letter }}
+                </span>
+            </section>
         </div>
+
+        <section>
+            <h2>To do</h2>
+            <ul>
+                <li>Ensure each letter only appears once.</li>
+                <li>Make sure styling works on mobile (using flex-box?).</li>
+                <li>Convert input to a single capital letter.</li>
+            </ul>
+        </section>
 
         <script src="codeword.js"></script>
 
