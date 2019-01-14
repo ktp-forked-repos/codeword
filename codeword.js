@@ -1,13 +1,19 @@
 var vm = new Vue({
     el: '#codeword',
     data: {
-        code: {
+        input: {
             // Mapping of numbers to letters
             1: "X", 2: "", 3: "", 4: "", 5: "", 6: "",
             7: "", 8: "", 9: "", 10: "", 11: "", 12: "",
             13: "", 14: "", 15: "", 16: "", 17: "", 18: "",
             19: "", 20: "", 21: "", 22: "", 23: "", 24: "",
             25: "", 26: "",
+        },
+        letters: {
+            A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0, 
+            I:0, J:0, K:0, L:0, M:0, N:0, O:0, P:0, 
+            Q:0, R:0, S:0, T:0, U:0, V:0, W:0, X:1,
+            Y:0, Z:0 
         },
         grid: [
             // Grid representing the crossword. 0 is a filled block
@@ -27,5 +33,64 @@ var vm = new Vue({
             [17, 0, 10, 0, 15, 0, 0, 12, 0, 18, 0, 15, 0, 0, 16],
             [14, 5, 12, 15, 9, 24, 14, 15, 0, 14, 1, 8, 16, 12, 4]
         ]
+    },
+    watch: {
+        'input.1': (val, oldVal) => validateInput(val, oldVal, 1),
+        'input.2': (val, oldVal) => validateInput(val, oldVal, 2),
+        'input.3': (val, oldVal) => validateInput(val, oldVal, 3),
+        'input.4': (val, oldVal) => validateInput(val, oldVal, 4),
+        'input.5': (val, oldVal) => validateInput(val, oldVal, 5),
+        'input.6': (val, oldVal) => validateInput(val, oldVal, 6),
+        'input.7': (val, oldVal) => validateInput(val, oldVal, 7),
+        'input.8': (val, oldVal) => validateInput(val, oldVal, 8),
+        'input.9': (val, oldVal) => validateInput(val, oldVal, 9),
+        'input.10': (val, oldVal) => validateInput(val, oldVal, 10),
+        'input.11': (val, oldVal) => validateInput(val, oldVal, 11),
+        'input.12': (val, oldVal) => validateInput(val, oldVal, 12),
+        'input.13': (val, oldVal) => validateInput(val, oldVal, 13),
+        'input.14': (val, oldVal) => validateInput(val, oldVal, 14),
+        'input.15': (val, oldVal) => validateInput(val, oldVal, 15),
+        'input.16': (val, oldVal) => validateInput(val, oldVal, 16),
+        'input.17': (val, oldVal) => validateInput(val, oldVal, 17),
+        'input.18': (val, oldVal) => validateInput(val, oldVal, 18),
+        'input.19': (val, oldVal) => validateInput(val, oldVal, 19),
+        'input.20': (val, oldVal) => validateInput(val, oldVal, 20),
+        'input.21': (val, oldVal) => validateInput(val, oldVal, 21),
+        'input.22': (val, oldVal) => validateInput(val, oldVal, 22),
+        'input.23': (val, oldVal) => validateInput(val, oldVal, 23),
+        'input.24': (val, oldVal) => validateInput(val, oldVal, 24),
+        'input.25': (val, oldVal) => validateInput(val, oldVal, 25),
+        'input.26': (val, oldVal) => validateInput(val, oldVal, 26),
     }
 });
+
+function validateInput(val, oldVal, num) {
+    let validated = val;
+
+    // Make sure we only have a single character
+    if (val.length > 1) {
+        validated = val[val.length - 1];
+    }
+
+    // Make sure letter is capitalised
+    validated = validated.toUpperCase();
+
+    // Make sure letter is valid
+    if (vm.letters[validated] === undefined) {
+        validated = oldVal;
+        return;
+    }
+
+    // Unmark old value
+    if (vm.letters[oldVal] !== undefined) {
+        vm.letters[oldVal]--;
+    }
+
+    // Mark new value
+    vm.letters[validated]++;
+
+    // Convert letter to validated value if it is different
+    if (validated !== val) {
+        vm.input[num] = validated;
+    }
+}

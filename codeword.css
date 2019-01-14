@@ -70,3 +70,17 @@ section {
     border: 1px solid black;
     background-color: black;
 }
+
+.cross-off-letters {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    margin-right: 1px;
+}
+
+.cross-off-letters.crossedOff {
+    color: #777;
+    background-color: #bbb;
+}
