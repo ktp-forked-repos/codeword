@@ -8,7 +8,6 @@ section {
     width: 32px;
     height: 32px;
     margin-right: -1px;
-    box-sizing: border-box;
     border: 1px solid #aaa;
 }
 
@@ -61,11 +60,12 @@ section {
     width: 36px;
     height: 100%;
     vertical-align: top;
-    box-sizing: border-box;
+    box-sizing: content-box;
     margin-right: 1px;
 }
 
 .grid-item div {
+    box-sizing: content-box;
     height: 100%;
     width: 100%;
 }
