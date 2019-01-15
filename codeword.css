@@ -34,6 +34,10 @@ section {
     font-size: 1.2rem;
 }
 
+.code-input.done {
+    background-color: #bbb;   
+}
+
 .code-grid {
     display: inline-block;
     border: 2px solid black;

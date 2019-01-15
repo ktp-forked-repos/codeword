@@ -34,6 +34,11 @@ var vm = new Vue({
             [14, 5, 12, 15, 9, 24, 14, 15, 0, 14, 1, 8, 16, 12, 4]
         ]
     },
+    methods: {
+        isDone: function(num) {
+            return { done: this.input[num] };
+        }
+    },
     watch: {
         'input.1': (val, oldVal) => validateInput(val, oldVal, 1),
         'input.2': (val, oldVal) => validateInput(val, oldVal, 2),

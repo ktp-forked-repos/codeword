@@ -21,7 +21,7 @@
                         <span class="grid-item" v-for="number in row">
                             <div class="item-block" v-if="number === 0"></div>
                             <div class="item-letter" v-else="">
-                                <input class="code-input" v-model="input[number]"/>
+                                <input class="code-input" v-model="input[number]" v-bind:class="isDone(number)"/>
                                 <span class="code-number" v-if="!input[number]">{{ number }}</span>
                             </div>
                         </span>
@@ -31,7 +31,7 @@
 
             <section>
                 <div class="letter-list" v-for="(letter, number) in input">
-                    <input class="code-input" v-model="input[number]"/>
+                    <input class="code-input" v-model="input[number]" v-bind:class="isDone(number)"/>
                     <span class="code-number" v-if="!letter">{{ number }}</span>
                 </div>
             </section>
