@@ -36,7 +36,13 @@ var vm = new Vue({
     },
     methods: {
         isDone: function(num) {
-            return { done: this.input[num] };
+            const letter = this.input[num];
+            console.log(letter, this.letters[letter])
+            if (letter && this.letters[letter] > 1) {
+                return { duplicated: true };
+            } else {
+                return  { done: letter };
+            }
         }
     },
     watch: {
@@ -90,12 +96,11 @@ function validateInput(val, oldVal, num) {
     if (vm.letters[oldVal] !== undefined) {
         vm.letters[oldVal]--;
     }
-
-    // Mark new value
-    vm.letters[validated]++;
-
+    
     // Convert letter to validated value if it is different
     if (validated !== val) {
         vm.input[num] = validated;
+        // Mark new value
+        vm.letters[validated]++;
     }
 }

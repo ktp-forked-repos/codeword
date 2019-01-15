@@ -30,6 +30,7 @@
             </section>
 
             <section>
+                <p>These are the numbers you have decoded.</p>
                 <div class="letter-list" v-for="(letter, number) in input">
                     <input class="code-input" v-model="input[number]" v-bind:class="isDone(number)"/>
                     <span class="code-number" v-if="!letter">{{ number }}</span>
@@ -37,7 +38,7 @@
             </section>
 
             <section>
-                <p>The letters below show which you have used.</p>
+                <p>These are the letters you have yet to use.</p>
                 <span class="cross-off-letters" v-for="(done, letter) in letters" v-bind:class="{ crossedOff: done }">
                     {{ letter }}
                 </span>
@@ -47,9 +48,9 @@
         <section>
             <h2>To do</h2>
             <ul>
-                <li>Ensure each letter only appears once.</li>
                 <li>Make sure styling works on mobile (using flex-box?).</li>
-                <li>Convert input to a single capital letter.</li>
+                <li>Make it easy to create new grids.</li>
+                <li>Show letter frequencies?</li>
             </ul>
         </section>
 

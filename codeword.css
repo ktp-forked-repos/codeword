@@ -38,6 +38,10 @@ section {
     background-color: #bbb;   
 }
 
+.code-input.duplicated {
+    color: #e11;   
+}
+
 .code-grid {
     display: inline-block;
     border: 2px solid black;
